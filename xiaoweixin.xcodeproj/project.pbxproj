@@ -23,6 +23,14 @@
 		4B75E1B71D87E91700AA8EC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B75E1B51D87E91700AA8EC4 /* LaunchScreen.storyboard */; };
 		4BA46CE91F3DA912001E7C81 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA46CE81F3DA912001E7C81 /* ScanViewController.m */; };
 		4BA46CEC1F3DAAEC001E7C81 /* ScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA46CEB1F3DAAEC001E7C81 /* ScanView.m */; };
+		4BDF24971F45423200FF3342 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF24961F45423200FF3342 /* MessageViewController.m */; };
+		4BDF24A01F4568B700FF3342 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF249F1F4568B700FF3342 /* messages.plist */; };
+		4BDF24A91F45837100FF3342 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF24A81F45837100FF3342 /* MessageModel.m */; };
+		4BDF24AC1F45837A00FF3342 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF24AB1F45837A00FF3342 /* MessageCell.m */; };
+		4BDF24AF1F4587B300FF3342 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF24AE1F4587B300FF3342 /* UIImage+Extension.m */; };
+		4BFE559B1F418BF00044C01C /* ShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE559A1F418BF00044C01C /* ShakeViewController.m */; };
+		4BFE559F1F418F360044C01C /* UIView+LSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE559E1F418F360044C01C /* UIView+LSExtension.m */; };
+		4BFE55A21F4198590044C01C /* ShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE55A11F4198590044C01C /* ShakeView.m */; };
 		D3B42F6FB0F85B2F92399B64 /* libPods-xiaoweixin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 677F34379257DB563B15638C /* libPods-xiaoweixin.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +65,21 @@
 		4BA46CEA1F3DAAEC001E7C81 /* ScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanView.h; sourceTree = "<group>"; };
 		4BA46CEB1F3DAAEC001E7C81 /* ScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanView.m; sourceTree = "<group>"; };
 		4BA46CED1F3DABDE001E7C81 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4BDF24951F45423200FF3342 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		4BDF24961F45423200FF3342 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		4BDF249F1F4568B700FF3342 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		4BDF24A71F45837100FF3342 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		4BDF24A81F45837100FF3342 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		4BDF24AA1F45837A00FF3342 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		4BDF24AB1F45837A00FF3342 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		4BDF24AD1F4587B300FF3342 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		4BDF24AE1F4587B300FF3342 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		4BFE55991F418BF00044C01C /* ShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeViewController.h; sourceTree = "<group>"; };
+		4BFE559A1F418BF00044C01C /* ShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeViewController.m; sourceTree = "<group>"; };
+		4BFE559D1F418F360044C01C /* UIView+LSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LSExtension.h"; sourceTree = "<group>"; };
+		4BFE559E1F418F360044C01C /* UIView+LSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSExtension.m"; sourceTree = "<group>"; };
+		4BFE55A01F4198590044C01C /* ShakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeView.h; sourceTree = "<group>"; };
+		4BFE55A11F4198590044C01C /* ShakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeView.m; sourceTree = "<group>"; };
 		677F34379257DB563B15638C /* libPods-xiaoweixin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xiaoweixin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		826424687F44485CC64CBEEB /* Pods-xiaoweixin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xiaoweixin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xiaoweixin/Pods-xiaoweixin.debug.xcconfig"; sourceTree = "<group>"; };
 		BCCC84910031A471C2FDAA51 /* Pods-xiaoweixin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xiaoweixin.release.xcconfig"; path = "Pods/Target Support Files/Pods-xiaoweixin/Pods-xiaoweixin.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +108,7 @@
 		4B4C31721D87FBEE0007149A /* 其他 */ = {
 			isa = PBXGroup;
 			children = (
+				4BFE559C1F418EEC0044C01C /* Category */,
 				4B4C31731D87FBEE0007149A /* AppDelegate.h */,
 				4B4C31741D87FBEE0007149A /* AppDelegate.m */,
 				4BA46CED1F3DABDE001E7C81 /* PrefixHeader.pch */,
@@ -111,6 +135,8 @@
 				4B6EC2681D88FA2800A3859E /* FriendTableViewController.m */,
 				4BA46CE71F3DA912001E7C81 /* ScanViewController.h */,
 				4BA46CE81F3DA912001E7C81 /* ScanViewController.m */,
+				4BFE55991F418BF00044C01C /* ShakeViewController.h */,
+				4BFE559A1F418BF00044C01C /* ShakeViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -134,6 +160,8 @@
 				4B6EC26F1D89230900A3859E /* FriendTableViewCell.xib */,
 				4BA46CEA1F3DAAEC001E7C81 /* ScanView.h */,
 				4BA46CEB1F3DAAEC001E7C81 /* ScanView.m */,
+				4BFE55A01F4198590044C01C /* ShakeView.h */,
+				4BFE55A11F4198590044C01C /* ShakeView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -153,6 +181,8 @@
 			children = (
 				4B4C31971D88005C0007149A /* ChatViewController.h */,
 				4B4C31981D88005C0007149A /* ChatViewController.m */,
+				4BDF24951F45423200FF3342 /* MessageViewController.h */,
+				4BDF24961F45423200FF3342 /* MessageViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -160,6 +190,8 @@
 		4B4C317E1D87FC7E0007149A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				4BDF24A71F45837100FF3342 /* MessageModel.h */,
+				4BDF24A81F45837100FF3342 /* MessageModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -167,6 +199,8 @@
 		4B4C317F1D87FC7E0007149A /* V */ = {
 			isa = PBXGroup;
 			children = (
+				4BDF24AA1F45837A00FF3342 /* MessageCell.h */,
+				4BDF24AB1F45837A00FF3342 /* MessageCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -267,6 +301,7 @@
 				4B75E1B01D87E91700AA8EC4 /* Main.storyboard */,
 				4B75E1B51D87E91700AA8EC4 /* LaunchScreen.storyboard */,
 				4B75E1B81D87E91700AA8EC4 /* Info.plist */,
+				4BDF249F1F4568B700FF3342 /* messages.plist */,
 				4B75E1A71D87E91700AA8EC4 /* Supporting Files */,
 			);
 			path = xiaoweixin;
@@ -278,6 +313,17 @@
 				4B75E1A81D87E91700AA8EC4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BFE559C1F418EEC0044C01C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4BFE559D1F418F360044C01C /* UIView+LSExtension.h */,
+				4BFE559E1F418F360044C01C /* UIView+LSExtension.m */,
+				4BDF24AD1F4587B300FF3342 /* UIImage+Extension.h */,
+				4BDF24AE1F4587B300FF3342 /* UIImage+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		D49337BDB85330D3BAD5F7ED /* Pods */ = {
@@ -353,6 +399,7 @@
 			files = (
 				4B75E1B71D87E91700AA8EC4 /* LaunchScreen.storyboard in Resources */,
 				4B75E1B41D87E91700AA8EC4 /* Assets.xcassets in Resources */,
+				4BDF24A01F4568B700FF3342 /* messages.plist in Resources */,
 				4B75E1B21D87E91700AA8EC4 /* Main.storyboard in Resources */,
 				4B6EC2711D89230900A3859E /* FriendTableViewCell.xib in Resources */,
 			);
@@ -367,9 +414,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-xiaoweixin/Pods-xiaoweixin-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -382,13 +434,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-xiaoweixin-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CBEBB70A91EFB53B1B5E2602 /* [CP] Embed Pods Frameworks */ = {
@@ -414,17 +469,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B4C319C1D8800830007149A /* ContactViewController.m in Sources */,
+				4BDF24971F45423200FF3342 /* MessageViewController.m in Sources */,
+				4BFE559B1F418BF00044C01C /* ShakeViewController.m in Sources */,
 				4B6EC2701D89230900A3859E /* FriendTableViewCell.m in Sources */,
 				4B4C319F1D8800AF0007149A /* MeViewController.m in Sources */,
 				4B6EC2691D88FA2800A3859E /* FriendTableViewController.m in Sources */,
 				4B4C318D1D87FCB00007149A /* FindTableViewController.m in Sources */,
+				4BDF24AF1F4587B300FF3342 /* UIImage+Extension.m in Sources */,
 				4BA46CE91F3DA912001E7C81 /* ScanViewController.m in Sources */,
 				4B6EC2741D89255D00A3859E /* FriendModel.m in Sources */,
+				4BFE55A21F4198590044C01C /* ShakeView.m in Sources */,
 				4B4C31771D87FBEE0007149A /* AppDelegate.m in Sources */,
+				4BDF24A91F45837100FF3342 /* MessageModel.m in Sources */,
 				4B6EC26C1D891F4700A3859E /* RequestDataManager.m in Sources */,
+				4BDF24AC1F45837A00FF3342 /* MessageCell.m in Sources */,
 				4BA46CEC1F3DAAEC001E7C81 /* ScanView.m in Sources */,
 				4B75E1A91D87E91700AA8EC4 /* main.m in Sources */,
 				4B4C31991D88005C0007149A /* ChatViewController.m in Sources */,
+				4BFE559F1F418F360044C01C /* UIView+LSExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

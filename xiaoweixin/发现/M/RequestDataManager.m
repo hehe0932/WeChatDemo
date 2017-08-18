@@ -2,7 +2,7 @@
 //  RequestDataManager.m
 //  xiaoweixin
 //
-//  Created by chenlishuang on 16/9/14.
+//  Created by chenlishuang on 17/5/14.
 //  Copyright © 2016年 chenlishuang. All rights reserved.
 //
 
@@ -38,7 +38,7 @@
             [model setValuesForKeysWithDictionary:d];
             [dataArray addObject:model];
         }
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         success(dataArray);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

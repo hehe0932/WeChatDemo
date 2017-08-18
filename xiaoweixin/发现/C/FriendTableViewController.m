@@ -2,7 +2,7 @@
 //  FriendTableViewController.m
 //  xiaoweixin
 //
-//  Created by chenlishuang on 16/9/14.
+//  Created by chenlishuang on 17/5/14.
 //  Copyright © 2016年 chenlishuang. All rights reserved.
 //
 
@@ -15,7 +15,13 @@
 @end
 
 @implementation FriendTableViewController
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
 
+- (void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"朋友圈";

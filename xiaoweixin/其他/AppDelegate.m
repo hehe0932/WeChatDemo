@@ -2,12 +2,12 @@
 //  AppDelegate.m
 //  xiaoweixin
 //
-//  Created by chenlishuang on 16/9/13.
+//  Created by chenlishuang on 17/5/13.
 //  Copyright © 2016年 chenlishuang. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import <RongIMLib/RongIMLib.h>
 @interface AppDelegate ()
 
 @end
@@ -22,6 +22,21 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:[UIColor colorWithRed:41/255.0 green:178/255.0 blue:10/255.0 alpha:1]];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [[RCIMClient sharedRCIMClient] initWithAppKey:@"8luwapkvue8wl"];
+    //调登录接口,登录成功跳到home
+    NSString *token = @"jlbvDIdyX0qSgvKZ//CyczfcMWa6YExZWvxgh3guX6WjHvAIpwUK2oZrV2hb143nxuDi7SI87V2TcVXr3nvD3Q==";
+    [[RCIMClient sharedRCIMClient] connectWithToken:token
+                                            success:^(NSString *userId) {
+                                                NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+                                                
+                                            } error:^(RCConnectErrorCode status) {
+                                                NSLog(@"登陆的错误码为:%ld", (long)status);
+                                            } tokenIncorrect:^{
+                                                //token过期或者不正确。
+                                                //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+                                                //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+                                                NSLog(@"token错误");
+                                            }];
 
     return YES;
 }

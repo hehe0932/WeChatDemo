@@ -11,4 +11,5 @@ pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'Masonry'
 pod 'MJRefresh'
+pod 'RongCloudIM/IMLib'
 end

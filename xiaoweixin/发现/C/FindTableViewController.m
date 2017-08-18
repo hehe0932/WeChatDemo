@@ -2,13 +2,14 @@
 //  FindTableViewController.m
 //  xiaoweixin
 //
-//  Created by chenlishuang on 16/9/13.
+//  Created by chenlishuang on 17/5/13.
 //  Copyright © 2016年 chenlishuang. All rights reserved.
 //
 
 #import "FindTableViewController.h"
 #import "FriendTableViewController.h"
 #import "ScanViewController.h"
+#import "ShakeViewController.h"
 @interface FindTableViewController ()
 @property (nonatomic,weak)NSArray *cellTitleArray;
 @property (nonatomic,weak)NSArray *cellImageArray;
@@ -27,6 +28,7 @@
     }
     return _cellImageArray;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发现";
@@ -80,6 +82,9 @@
         if (indexPath.row == 0) {
             ScanViewController *scanVC = [ScanViewController new] ;
             [self.navigationController pushViewController:scanVC animated:YES];
+        }else{
+            ShakeViewController *shakeVC = [ShakeViewController new];
+            [self.navigationController pushViewController:shakeVC animated:YES];
         }
     }
 }
