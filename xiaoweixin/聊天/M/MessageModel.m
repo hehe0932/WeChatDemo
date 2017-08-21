@@ -15,4 +15,8 @@
     [message setValuesForKeysWithDictionary:dict];
     return message;
 }
+
+- (NSString *)description{
+    return [NSString stringWithFormat:@"%f %@ %@",self.cellHeight,self.text,self.time];
+}
 @end

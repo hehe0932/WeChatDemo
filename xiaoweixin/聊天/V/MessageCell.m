@@ -59,6 +59,7 @@
     
     self.otherContentLabel = [UIButton buttonWithType:UIButtonTypeCustom];
     self.otherContentLabel.titleLabel.numberOfLines = 0;
+    self.otherContentLabel.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.otherContentLabel setBackgroundImage:[UIImage resizebleImageNamed:@"ReceiverTextNodeBkg"] forState:UIControlStateNormal];
     [self.otherContentLabel setBackgroundImage:[UIImage resizebleImageNamed:@"ReceiverTextNodeBkgHL"] forState:UIControlStateHighlighted];
     [self.otherContentLabel setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -67,10 +68,13 @@
     [self.otherContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.otherIconImage.mas_right).offset(10);
         make.top.equalTo(self.otherIconImage).offset(10);
+        make.width.lessThanOrEqualTo(@200);
+        make.width.greaterThanOrEqualTo(@50);
     }];
     
     self.contentLabel = [UIButton buttonWithType:UIButtonTypeCustom];
     self.contentLabel.titleLabel.numberOfLines = 0;
+    self.contentLabel.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.contentLabel setBackgroundImage:[UIImage resizebleImageNamed:@"SenderTextNodeBkg"] forState:UIControlStateNormal];
     [self.contentLabel setBackgroundImage:[UIImage resizebleImageNamed:@"SenderTextNodeBkgHL"] forState:UIControlStateHighlighted];
     [self.contentLabel setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -78,6 +82,8 @@
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.iconImage.mas_left).offset(-10);
         make.top.equalTo(self.iconImage).offset(10);
+        make.width.lessThanOrEqualTo(@200);
+        make.width.greaterThanOrEqualTo(@50);
     }];
     
 }
@@ -107,39 +113,26 @@
 
 -(void)settingShowContent:(UIButton *)showContent showIcon:(UIImageView *)showIcon hiddenConten:(UIButton *)hiddenConten hiddenIcon:(UIImageView *)hiddenIcon
 {
-    [showContent setContentEdgeInsets:UIEdgeInsetsMake(10, 5, 5, 10)];
+    [showContent setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 5, 10)];
     showContent.hidden = NO;
     showIcon.hidden = NO;
     hiddenConten.hidden = YES;
     hiddenIcon.hidden = YES;
     
     [showContent setTitle:self.messageModel.text forState:UIControlStateNormal];
-    showContent.titleLabel.font = [UIFont systemFontOfSize:15];
-    showContent.titleLabel.numberOfLines = 0;
     //重新布局
     [showContent layoutIfNeeded];
-    if (showContent.titleLabel.width > 180) {
-        showContent.width = 180;
-    }
-    
-    CGRect textRect = [self.messageModel.text boundingRectWithSize:CGSizeMake(showContent.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSAttachmentAttributeName:[UIFont systemFontOfSize:15]} context:nil];
-    NSLog(@"~~%f",textRect.size.height);
-    
-    showContent.height = textRect.size.height + 30;
-    
+
+    CGFloat labelHeight = showContent.titleLabel.frame.size.height;
     
     [showContent mas_updateConstraints:^(MASConstraintMaker *make) {
-        CGFloat labelHeight = textRect.size.height + 40;
-//        CGFloat labelWidth = showContent.titleLabel.frame.size.width +40;
-        make.height.mas_equalTo(labelHeight);
-        make.width.mas_equalTo(showContent.width + 20);
+        make.height.mas_equalTo(labelHeight + 30);
     }];
 
     [showContent layoutIfNeeded];
-    
     CGFloat iconMaxY = 60;
-    CGFloat contentMaxY = CGRectGetMaxY(showContent.frame);
+    CGFloat contentMaxY = 20 + showContent.titleLabel.height + 15;
     CGFloat margin = 10;
-    self.messageModel.cellHeight = MAX(iconMaxY, contentMaxY) + margin;
+    _messageModel.cellHeight = MAX(iconMaxY, contentMaxY) + margin;
 }
 @end

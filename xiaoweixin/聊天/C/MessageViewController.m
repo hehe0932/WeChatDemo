@@ -85,6 +85,7 @@
         make.left.equalTo(self.soundButton.mas_right);
         make.right.equalTo(self.emotionButton.mas_left);
     }];
+    
 }
 
 - (void)keyboardNotification:(NSNotification *)notification{
