@@ -13,8 +13,8 @@
 @end
 
 @implementation AppDelegate
-
-
+//003的token:@"jlbvDIdyX0qSgvKZ//CyczfcMWa6YExZWvxgh3guX6WjHvAIpwUK2oZrV2hb143nxuDi7SI87V2TcVXr3nvD3Q=="
+//004的token:@"hE/9Ohq65TSz91Gb80VXynbCAFXTZWHoc+8NBYrpvLNEbhZxafdDfdeTv3XqmxNY7PYYY1RDhduzT5p6ZApYXw=="
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[UINavigationBar appearance]setBarTintColor:[UIColor blackColor]];
@@ -24,7 +24,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [[RCIMClient sharedRCIMClient] initWithAppKey:@"8luwapkvue8wl"];
     //调登录接口,登录成功跳到home
-    NSString *token = @"jlbvDIdyX0qSgvKZ//CyczfcMWa6YExZWvxgh3guX6WjHvAIpwUK2oZrV2hb143nxuDi7SI87V2TcVXr3nvD3Q==";
+    NSString *token = @"hE/9Ohq65TSz91Gb80VXynbCAFXTZWHoc+8NBYrpvLNEbhZxafdDfdeTv3XqmxNY7PYYY1RDhduzT5p6ZApYXw==";
     [[RCIMClient sharedRCIMClient] connectWithToken:token
                                             success:^(NSString *userId) {
                                                 NSLog(@"登陆成功。当前登录的用户ID：%@", userId);

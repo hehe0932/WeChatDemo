@@ -10,7 +10,8 @@
 #import "MessageModel.h"
 #import "MessageCell.h"
 #import <Masonry.h>
-@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>{
+#import <RongIMLib/RongIMLib.h>
+@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,RCIMClientReceiveMessageDelegate>{
     int _index;
 }
 @property(nonatomic,strong)NSMutableArray * messages;/** 消息模型  */
@@ -42,7 +43,8 @@
     [self initViews];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
-
+    
+    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
 }
 - (void)initViews{
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -129,6 +131,91 @@
     MessageModel *model = self.messages[indexPath.row];
     return model.cellHeight;
 }
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
+#pragma maek - UITextFieldDelegate代理
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+//    if ([textField.text isEqualToString:@""]) {
+//        return YES;
+//    }
+    
+
+    // 构建消息的内容，这里以文本消息为例。
+    RCTextMessage *testMessage = [RCTextMessage messageWithContent:textField.text];
+    // 调用RCIMClient的sendMessage方法进行发送，结果会通过回调进行反馈。
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
+                                      targetId:@"003"
+                                       content:testMessage
+                                   pushContent:nil
+                                      pushData:nil
+                                       success:^(long messageId) {
+                                           NSLog(@"发送成功。当前消息ID：%ld", messageId);
+                                           dispatch_sync(dispatch_get_main_queue(), ^{
+                                               MessageModel *model = [[MessageModel alloc]init];
+                                               model.text = textField.text;
+                                               model.type = MessageTypeMe;
+                                               [self.messages addObject:model];
+                                               
+                                               NSInteger lastRow = self.messages.count - 1;
+                                               NSIndexPath * lastIndexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+                                               //手动创建cell
+                                               [self tableView:self.tableView cellForRowAtIndexPath:lastIndexPath];
+                                               [self.tableView insertRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+                                               // 滚动tableview到指定的Cell 的那个位置UITableViewScrollPositionBottom Cell的地底部
+                                               [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                                               //    [self.tableView reloadData];
+                                               self.inputTextField.text = @"";
+                                               
+                                           });
+                                       } error:^(RCErrorCode nErrorCode, long messageId) {
+                                           NSLog(@"发送失败。消息ID：%ld， 错误码：%ld", messageId, (long)nErrorCode);
+                                       }];
+    
+    return YES;
+}
+#pragma mark - 接收消息的回调
+/*!
+ 接收消息的回调方法
+ 
+ @param message     当前接收到的消息
+ @param nLeft       还剩余的未接收的消息数，left>=0
+ @param object      消息监听设置的key值
+ 
+ @discussion 如果您设置了IMlib消息监听之后，SDK在接收到消息时候会执行此方法。
+ 其中，left为还剩余的、还未接收的消息数量。比如刚上线一口气收到多条消息时，通过此方法，您可以获取到每条消息，left会依次递减直到0。
+ 您可以根据left数量来优化您的App体验和性能，比如收到大量消息时等待left为0再刷新UI。
+ object为您在设置消息接收监听时的key值。
+ */
+- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
+    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
+        RCTextMessage *testMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", testMessage.content);
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            MessageModel *model = [[MessageModel alloc]init];
+            model.text = testMessage.content;
+            model.type = MessageTypeOther;
+            [self.messages addObject:model];
+            
+            NSInteger lastRow = self.messages.count - 1;
+            NSIndexPath * lastIndexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+            //手动创建cell
+            [self tableView:self.tableView cellForRowAtIndexPath:lastIndexPath];
+            [self.tableView insertRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+            // 滚动tableview到指定的Cell 的那个位置UITableViewScrollPositionBottom Cell的地底部
+            [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            //    [self.tableView reloadData];
+            self.inputTextField.text = @"";
+        });
+    }
+    
+    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
+}
+#pragma mark - 懒加载
 - (NSMutableArray *)messages{
     if (!_messages) {
         NSString * path = [[NSBundle mainBundle]pathForResource:@"messages.plist" ofType:nil];
@@ -147,33 +234,6 @@
     }
     return _messages;
 }
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
-}
-
-#pragma maek - UITextFieldDelegate代理
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
-    MessageModel *model = [[MessageModel alloc]init];
-    model.text = textField.text;
-    model.type = MessageTypeMe;
-    [self.messages addObject:model];
-    
-    NSInteger lastRow = self.messages.count - 1;
-    NSIndexPath * lastIndexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    //手动创建cell
-    [self tableView:self.tableView cellForRowAtIndexPath:lastIndexPath];
-    [self.tableView insertRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationTop];
-    // 滚动tableview到指定的Cell 的那个位置UITableViewScrollPositionBottom Cell的地底部
-    [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//    [self.tableView reloadData];
-    self.inputTextField.text = @"";
-
-    return YES;
-}
-
-#pragma mark - 懒加载
 - (UIImageView *)inputView{
     if (!_inputView) {
         _inputView = [[UIImageView alloc]init];

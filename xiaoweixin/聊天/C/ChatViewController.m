@@ -8,14 +8,10 @@
 
 #import "ChatViewController.h"
 #import "MessageViewController.h"
-#import "RequestDataManager.h"
-#import "FriendModel.h"
-#import <UIImageView+WebCache.h>
+#import <RongIMLib/RongIMLib.h>
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
 /** tableVeiw*/
 @property (nonatomic,strong)UITableView *tableView;
-/** 数据*/
-@property (nonatomic,strong)NSArray *dataArray;
 
 @end
 
@@ -33,13 +29,14 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
-    [[RequestDataManager sharedRequestData]requestDataSuccess:^(NSArray *array) {
-        self.dataArray = array;
-        [self.tableView reloadData];
-    }];
     //先选第一个
-    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self tableView:self.tableView didSelectRowAtIndexPath:path];
+//    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self tableView:self.tableView didSelectRowAtIndexPath:path];
+   NSArray *arr = [[RCIMClient sharedRCIMClient]getLatestMessages:ConversationType_PRIVATE targetId:@"003" count:99];
+    for (RCMessage *message in arr) {
+        NSLog(@"消息~%@",message.targetId);
+    }
+    
 }
 
 - (void)rightItemAction {
@@ -48,7 +45,7 @@
 
 #pragma mark - tableView代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID = @"cellID";
@@ -56,10 +53,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    FriendModel *model = self.dataArray[indexPath.row];
-    cell.textLabel.text = model.name;
-    cell.detailTextLabel.text = model.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.profile_image]placeholderImage:[UIImage imageNamed:@"game_tag_icon"]];
+    cell.textLabel.text = @"003";
+    cell.detailTextLabel.text = @"消息内容";
+    cell.imageView.image = [UIImage imageNamed:@"xhr"];
     return cell;
 }
 

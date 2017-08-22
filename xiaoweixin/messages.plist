@@ -4,65 +4,9 @@
 <array>
 	<dict>
 		<key>text</key>
-		<string>喂，2B！😄</string>
+		<string>你好啊</string>
 		<key>time</key>
 		<string>前天 10:27</string>
-		<key>type</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>你妹啊，你才2B！说，什么事？</string>
-		<key>time</key>
-		<string>昨天 20:07</string>
-		<key>type</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>我就是想问一下,这个世界上是现有🐔还是现有蛋</string>
-		<key>time</key>
-		<string>昨天 20:07</string>
-		<key>type</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>先有鸡!!</string>
-		<key>time</key>
-		<string>前天 10:28</string>
-		<key>type</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>额.....</string>
-		<key>time</key>
-		<string>昨天 20:05</string>
-		<key>type</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>为什么??!!</string>
-		<key>time</key>
-		<string>昨天 20:05</string>
-		<key>type</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>生活所迫</string>
-		<key>time</key>
-		<string>昨天 20:05</string>
-		<key>type</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>text</key>
-		<string>.........</string>
-		<key>time</key>
-		<string>昨天 20:05</string>
 		<key>type</key>
 		<integer>0</integer>
 	</dict>
